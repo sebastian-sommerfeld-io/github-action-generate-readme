@@ -1,0 +1,4 @@
+= Github Action: Generate README.adoc
+include::ROOT:partial$vars.adoc[]
+
+include::ROOT:partial$README.adoc[]
