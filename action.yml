@@ -1,6 +1,13 @@
 ---
 name: Generate README.adoc
 description: Auto-generate README.adoc for a repository based on projects Antora docs.
+inputs:
+  caption: # id of input
+    description: Caption for README.adoc
+    required: true
+    default: Update Me!
 runs:
   using: 'docker'
   image: 'src/main/Dockerfile'
+  args:
+    - ${{ inputs.caption }}
