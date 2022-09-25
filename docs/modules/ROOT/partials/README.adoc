@@ -15,14 +15,57 @@ image:{github-actions-url}/{job-ci}/{badge}[Github Badge, link={github-actions-u
 |===
 
 == Outputs
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-CAUTION: todo ...
+A README.adoc file in the project root with contents from your `docs/modules/ROOT/partials/README.adoc` and `docs/modules/ROOT/partials/vars.adoc` files.
 
 == Example usage
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+=== Required Asciidoc files
+This action expects `docs/modules/ROOT/partials/README.adoc` and `docs/modules/ROOT/partials/vars.adoc` files to be present in your repo.
 
-CAUTION: todo ...
+.`docs/modules/ROOT/partials/README.adoc` -> This file contains your actual README content but does not contain a 1st level headline.
+[source, asciidoc]
+----
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+
+image:{github-actions-url}/{job-generate-docs}/{badge}[Github Badge, link={github-actions-url}/{job-generate-docs}]
+image:{github-actions-url}/{job-ci}/{badge}[Github Badge, link={github-actions-url}/{job-ci}]
+
+* Github Repository -> {url-project}
+* Documentation/ -> https://docs.cloud.sommerfeld.io/{project-name}-docs/main
+* Where to file issues -> {url-project}/issues
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+----
+
+.`docs/modules/ROOT/partials/vars.adoc` -> This file contains all variables needed for the README.
+[source, asciidoc]
+----
+:image-name: generate-readme
+:project-name: github-action-{image-name}
+:url-project: https://github.com/sebastian-sommerfeld-io/{project-name}
+:github-actions-url: {url-project}/actions/workflows
+:job-ci: ci.yml
+:job-generate-docs: auto-generate-docs.yml
+:badge: badge.svg
+
+----
+
+.`docs/modules/ROOT/pages/index.adoc` -> Antora docs startpage
+[source, asciidoc]
+----
+= Github Action: Generate README.adoc
+\include::ROOT:partial$vars.adoc[]
+
+\include::ROOT:partial$README.adoc[]
+----
+
+=== Use in a Github Actions Workflow
+[source, yaml]
+----
+- name: README.adoc
+  uses: sebastian-sommerfeld-io/github-action-generate-readme@main
+  with:
+    caption: 'Github Action: Generate README.adoc'
+----
 
 == Risks and Technical Debts
 Scale for Probability and Impact: Low, Medium and High
