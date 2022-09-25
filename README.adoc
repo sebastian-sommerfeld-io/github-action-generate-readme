@@ -1,3 +1,3 @@
-= Github A: Generate README.adoc
+= Github Action: Generate README.adoc
 
 Auto-generate README.adoc for a repository based on projects Antora docs.
