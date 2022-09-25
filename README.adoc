@@ -16,7 +16,7 @@
 // |                                         |
 // +-----------------------------------------+
 
-Auto-generate README.adoc for a repository based on projects Antora docs.
+Github Action to auto-generate README.adoc for a repository based on projects Antora docs.
 
 image:{github-actions-url}/{job-generate-docs}/{badge}[Github Badge, link={github-actions-url}/{job-generate-docs}]
 image:{github-actions-url}/{job-ci}/{badge}[Github Badge, link={github-actions-url}/{job-ci}]
