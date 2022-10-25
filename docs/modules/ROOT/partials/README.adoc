@@ -46,7 +46,6 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 :job-ci: ci.yml
 :job-generate-docs: auto-generate-docs.yml
 :badge: badge.svg
-
 ----
 
 .`docs/modules/ROOT/pages/index.adoc` -> Antora docs startpage
