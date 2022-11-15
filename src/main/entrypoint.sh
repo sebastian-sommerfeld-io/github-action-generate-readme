@@ -7,7 +7,7 @@
 #
 # CAUTION: Do not invoke directly. It is intended to run inside this Docker image, not on its own!
 #
-# ==== Arguments
+# === Script Arguments
 #
 # The script does not accept any parameters.
 
